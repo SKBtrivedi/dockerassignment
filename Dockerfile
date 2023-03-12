@@ -1,7 +1,8 @@
 FROM openjdk:17-oracle
 
+RUN mkdir /app
+WORKDIR /app
+COPY target/DockerAssignment-0.0.1-SNAPSHOT.jar /app
 EXPOSE 8090
 
-ADD target/DockerAssignment-0.0.1-SNAPSHOT.jar DockerAssignment.jar
-
-ENTRYPOINT ["java","-jar","DockerAssignment.jar"]
+ENTRYPOINT ["java", "-jar", "DockerAssignment-0.0.1-SNAPSHOT.jar"]
